@@ -41,7 +41,7 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-xl text-muted-foreground"
               >
-                Desarrollador Web
+                Web Developer & IT Specialist
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
