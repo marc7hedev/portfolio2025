@@ -12,6 +12,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { Play, MoreVertical, Github, CirclePlus } from "lucide-react"
 import { AnimatedSection } from "@/components/ui/animated-section"
 
+// TODO: Añadir campos de detalles del proyecto, donde al abrir el modal del proyecto pueda ver una explicación más detallada, con carrousel de imagenes y tal
 const projects = [
   {
     id: 1,
@@ -60,7 +61,7 @@ const projects = [
     description: "Portafolio personal creado con React y Framer Motion.",
     videoUrl: "/videos/portfolio-2024.mp4",
     category: "mobile",
-    technologies: ["Flutter", "Firebase", "Google Fit API"],
+    technologies: ["React", "Framermotion", "Sass"],
     githubUrl: "https://github.com/yourusername/fitness-tracking-app",
     demoUrl: "https://fitness-tracking-demo.vercel.app",
   },
@@ -83,8 +84,8 @@ export function ProjectsSection() {
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="all">Todos</TabsTrigger>
-              <TabsTrigger value="web">Web</TabsTrigger>
-              <TabsTrigger value="mobile">Mobile</TabsTrigger>
+              <TabsTrigger value="web">WebApps</TabsTrigger>
+              <TabsTrigger value="mobile">WebPages</TabsTrigger>
             </TabsList>
             <TabsContent value={activeTab}>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
