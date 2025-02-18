@@ -22,7 +22,7 @@ const projects = [
     videoUrl: "/videos/diesel-segoviano.mp4",
     category: "web",
     technologies: ["React", "NextJs", "Typescript", "Tailwind", "Prisma"],
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    githubUrl: "https://marc7-diesel.vercel.app/",
     demoUrl: "https://marc7-diesel.vercel.app/",
   },
   {
@@ -32,8 +32,8 @@ const projects = [
     videoUrl: "/videos/eba-salesforce.mp4",
     category: "web",
     technologies: ["NodeJs", "Express", "Salesforce", "BULK API 2.0", "CSV-Parser"],
-    githubUrl: "https://github.com/yourusername/task-management-app",
-    demoUrl: "https://task-management-demo.vercel.app",
+    githubUrl: "https://marc7hedev.github.io/errorpagev1/",
+    demoUrl: "https://marc7hedev.github.io/errorpagev1/",
   },
   {
     id: 3,
@@ -42,17 +42,17 @@ const projects = [
     videoUrl: "/videos/ferre-medina.mp4",
     category: "mobile",
     technologies: ["Wordpress", "Elementor", "Js", "Google Analytics"],
-    githubUrl: "https://github.com/yourusername/weather-forecast-app",
+    githubUrl: "https://ferre-medina.marco-rangel.com/",
     demoUrl: "https://weather-forecast-demo.vercel.app",
   },
   {
     id: 4,
     title: "CRUD Server Actions con NextJs",
     description: "Pequeño CRUD gestor de tareas utilizando NextJs, Server Actions y Prisma con PostgreSQL.",
-    videoUrl: "/videos/portfolio.mp4",
+    videoUrl: "/videos/crud-nextjs.mp4",
     category: "web",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com/yourusername/portfolio-website",
+    githubUrl: "https://github.com/marc7hedev/nextjs-crud",
     demoUrl: "https://marc7-nextjs-crud.up.railway.app/",
   },
   {
@@ -62,8 +62,8 @@ const projects = [
     videoUrl: "/videos/portfolio-2024.mp4",
     category: "mobile",
     technologies: ["React", "Framermotion", "Sass"],
-    githubUrl: "https://github.com/yourusername/fitness-tracking-app",
-    demoUrl: "https://fitness-tracking-demo.vercel.app",
+    githubUrl: "https://github.com/marc7hedev/portfolio2024",
+    demoUrl: "https://portfolio2024.marco-rangel.com/",
   },
 ]
 
