@@ -41,12 +41,12 @@ interface FormData {
 
 const socialLinks = [
     {
-        name: "https://github.com/marc7hedev",
+        name: "github.com/marc7hedev",
         icon: Github,
         url: "https://github.com/marc7hedev",
     },
     {
-        name: "https://www.linkedin.com/in/marcogonzalez-webdev/",
+        name: "linkedin.com/in/marcogonzalez-webdev/",
         icon: Linkedin,
         url: "https://www.linkedin.com/in/marcogonzalez-webdev/",
     },
