@@ -57,33 +57,18 @@ export function HeroSection() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.5,
-                type: "spring",
-                stiffness: 100
-              }}
-              className="relative max-w-md mx-auto aspect-square"
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/0 animate-pulse" />
-              <video
-                className="rounded-full w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src="/videos/avatar.mp4" type="video/mp4" />
-                Tu navegador no soporta el elemento de video.
-              </video>
-            </motion.div>
+            <div className="relative w-full aspect-square max-w-xl mx-auto">
+              <iframe
+                src='https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/'
+                width='100%'
+                height='100%'
+                frameBorder='0'
+                title="Spline 3D Scene"
+              />
+            </div>
           </AnimatedSection>
         </div>
       </div>
     </section>
   )
 }
-
