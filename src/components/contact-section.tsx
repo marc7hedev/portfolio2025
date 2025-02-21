@@ -46,9 +46,9 @@ const socialLinks = [
         url: "https://github.com/marc7hedev",
     },
     {
-        name: "linkedin.com/in/marcogonzalez-webdev/",
+        name: "linkedin.com/in/marco-rangel-it",
         icon: Linkedin,
-        url: "https://www.linkedin.com/in/marcogonzalez-webdev/",
+        url: "https://www.linkedin.com/in/marco-rangel-it/",
     },
     {
         name: "rangelmarco1994@gmail.com",

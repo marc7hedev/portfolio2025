@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Globe } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -14,9 +13,9 @@ const socialLinks = [
         url: "https://github.com/marc7hedev",
     },
     {
-        name: "https://www.linkedin.com/in/marcogonzalez-webdev/",
+        name: "https://www.linkedin.com/in/marco-rangel-it/",
         icon: Linkedin,
-        url: "https://www.linkedin.com/in/marcogonzalez-webdev/",
+        url: "https://www.linkedin.com/in/marco-rangel-it/",
     },
     {
         name: "rangelmarco1994@gmail.com",
