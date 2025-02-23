@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -14,6 +13,7 @@ import {
 } from "react-icons/si";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
+import { CardWithTrail } from "@/components/ui/card-with-trail";
 
 const skills = [
     {
@@ -84,75 +84,66 @@ export function SkillsSection() {
                     </motion.h2>
                 </AnimatedSection>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Habilidades</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex flex-wrap gap-2">
-                                {skills.map((skill, index) => (
-                                    <AnimatedSection
-                                        key={skill.name}
-                                        delay={index * 0.1}
+                    <CardWithTrail title="Habilidades">
+                        <div className="flex flex-wrap gap-2">
+                            {skills.map((skill, index) => (
+                                <AnimatedSection
+                                    key={skill.name}
+                                    delay={index * 0.1}
+                                >
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{
+                                            duration: 0.3,
+                                            delay: index * 0.1,
+                                        }}
                                     >
-                                        <motion.div
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{
-                                                duration: 0.3,
-                                                delay: index * 0.1,
-                                            }}
-                                        >
-                                            <Badge
-                                                variant="outline"
-                                                className={cn(
-                                                    "text-lg py-2 px-3 border-2 transition-colors duration-200",
-                                                    skill.color
-                                                )}
-                                            >
-                                                <skill.icon className="inline-block mr-2" />
-                                                {skill.name}
-                                            </Badge>
-                                        </motion.div>
-                                    </AnimatedSection>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Servicios</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-4">
-                                {services.map((service, index) => (
-                                    <AnimatedSection
-                                        key={service.title}
-                                        delay={index * 0.1}
-                                    >
-                                        <motion.li
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{
-                                                duration: 0.3,
-                                                delay: index * 0.1,
-                                            }}
-                                        >
-                                            <h3 className="font-semibold">
-                                                {service.title}
-                                            </h3>
-                                            <p className="text-sm text-muted-foreground">
-                                                {service.description}
-                                            </p>
-                                            {index < services.length - 1 && (
-                                                <Separator className="mt-2" />
+                                        <Badge
+                                            variant="outline"
+                                            className={cn(
+                                                "text-lg py-2 px-3 border-2 transition-colors duration-200",
+                                                skill.color
                                             )}
-                                        </motion.li>
-                                    </AnimatedSection>
-                                ))}
-                            </ul>
-                        </CardContent>
-                    </Card>
+                                        >
+                                            <skill.icon className="inline-block mr-2" />
+                                            {skill.name}
+                                        </Badge>
+                                    </motion.div>
+                                </AnimatedSection>
+                            ))}
+                        </div>
+                    </CardWithTrail>
+                    
+                    <CardWithTrail title="Servicios">
+                        <ul className="space-y-4">
+                            {services.map((service, index) => (
+                                <AnimatedSection
+                                    key={service.title}
+                                    delay={index * 0.1}
+                                >
+                                    <motion.li
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 0.3,
+                                            delay: index * 0.1,
+                                        }}
+                                    >
+                                        <h3 className="font-semibold">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground">
+                                            {service.description}
+                                        </p>
+                                        {index < services.length - 1 && (
+                                            <Separator className="mt-2" />
+                                        )}
+                                    </motion.li>
+                                </AnimatedSection>
+                            ))}
+                        </ul>
+                    </CardWithTrail>
                 </div>
             </div>
         </section>
