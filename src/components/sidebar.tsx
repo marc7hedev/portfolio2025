@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { useSidebar } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { ChevronLeft, Menu, Home, Briefcase, Code, Mail } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { ModeToggle } from "@/components/mode-toggle"
+import { VisitCounter } from "@/components/visit-counter"
 
 const menuItems = [
   { icon: Home, label: "Inicio", href: "#home" },
@@ -18,17 +19,6 @@ const menuItems = [
   { icon: Briefcase, label: "Proyectos", href: "#projects" },
   { icon: Mail, label: "Contacto", href: "#contact" },
 ]
-
-const sidebarVariants = {
-  expanded: {
-    width: "15rem",
-    transition: { duration: 0.3, ease: "easeOut" }
-  },
-  collapsed: {
-    width: "4rem",
-    transition: { duration: 0.3, ease: "easeOut" }
-  }
-}
 
 const menuItemVariants = {
   expanded: {
@@ -152,6 +142,12 @@ export function AppSidebar() {
               </Link>
             </motion.div>
           ))}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <VisitCounter isCollapsed={isCollapsed} isMobile={isMobile} />
+          </motion.div>
         </nav>
       </ScrollArea>
 
