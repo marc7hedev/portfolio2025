@@ -2,17 +2,16 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { Play, MoreVertical, Github, CirclePlus } from "lucide-react"
 import { AnimatedSection } from "@/components/ui/animated-section"
+import { CardWithTrail } from "@/components/ui/card-with-trail"
 
-// TODO: Añadir campos de detalles del proyecto, donde al abrir el modal del proyecto pueda ver una explicación más detallada, con carrousel de imagenes y tal
 const projects = [
   {
     id: 1,
@@ -99,11 +98,11 @@ export function ProjectsSection() {
                           transition={{ type: "spring", stiffness: 300 }}
                           className="cursor-pointer"
                         >
-                          <Card className="overflow-hidden">
+                          <CardWithTrail trailColor="green">
                             <CardHeader className="p-0">
                               <video
                                 src={project.videoUrl}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover rounded-t-md"
                                 autoPlay
                                 loop
                                 muted
@@ -159,7 +158,7 @@ export function ProjectsSection() {
                                 </DropdownMenuContent>
                               </DropdownMenu>
                             </CardFooter>
-                          </Card>
+                          </CardWithTrail>
                         </motion.div>
                       </DialogTrigger>
                     </AnimatedSection>
@@ -203,4 +202,3 @@ export function ProjectsSection() {
     </section>
   )
 }
-
