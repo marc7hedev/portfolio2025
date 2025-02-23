@@ -49,7 +49,11 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex justify-center md:justify-start"
               >
-                <Button>
+                <Button
+                  onClick={() => {
+                    window.open("/pdf/cv2025.pdf", "_blank")
+                  }}
+                >
                   <Download className="mr-2 h-4 w-4" /> Descargar CV
                 </Button>
               </motion.div>
@@ -65,7 +69,7 @@ export function HeroSection() {
                 frameBorder='0'
                 title="Spline 3D Scene"
               />
-            </div>
+            </div> 
           </AnimatedSection>
         </div>
       </div>
