@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/ui/animated-section"
-import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { LikeCounter } from "@/components/ui/like-counter"
+import { ButtonWithGlow } from "@/components/ui/button-with-glow"
 
 export function HeroSection() {
   return (
@@ -48,15 +48,15 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex justify-center md:justify-start space-x-4"
+                className="flex justify-center md:justify-start gap-4 items-center"
               >
-                <Button
+                <ButtonWithGlow
                   onClick={() => {
                     window.open("/pdf/cv2025.pdf", "_blank")
                   }}
                 >
                   <Download className="mr-2 h-4 w-4" /> Descargar CV
-                </Button>
+                </ButtonWithGlow>
                 <LikeCounter />
               </motion.div>
             </div>
