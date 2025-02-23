@@ -12,17 +12,19 @@ interface CardWithTrailProps {
 export function CardWithTrail({ children, className, title }: CardWithTrailProps) {
   return (
     <div className={cn(
-      "relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm",
-      "dark:bg-zinc-900/90 dark:border-zinc-800",
-      "light:bg-white/90 light:border-zinc-200",
+      "relative overflow-hidden rounded-md border",
+      "bg-white text-zinc-700 border-zinc-950/10",
+      "dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-50/20",
       className
     )}>
       <BorderTrail
-        style={{
-          boxShadow: "0px 0px 60px 30px rgb(var(--border-trail) / 0.5), 0 0 100px 60px rgb(var(--border-trail) / 0.3), 0 0 140px 90px rgb(var(--border-trail) / 0.2)",
+        className="bg-gradient-to-r from-blue-200 via-blue-500 to-blue-200 dark:from-blue-400 dark:via-blue-500 dark:to-blue-700"
+        size={120}
+        transition={{
+          duration: 5,
+          ease: "linear",
+          repeat: Infinity,
         }}
-        className="[--border-trail:255_255_255] dark:[--border-trail:0_0_0]"
-        size={100}
       />
       <div className="relative z-10 flex flex-col h-full p-6">
         {title && (
