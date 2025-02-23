@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
+import { LikeCounter } from "@/components/ui/like-counter"
 
 export function HeroSection() {
   return (
@@ -47,7 +48,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex justify-center md:justify-start"
+                className="flex justify-center md:justify-start space-x-4"
               >
                 <Button
                   onClick={() => {
@@ -56,6 +57,7 @@ export function HeroSection() {
                 >
                   <Download className="mr-2 h-4 w-4" /> Descargar CV
                 </Button>
+                <LikeCounter />
               </motion.div>
             </div>
           </AnimatedSection>
@@ -63,10 +65,10 @@ export function HeroSection() {
           <AnimatedSection delay={0.2}>
             <div className="relative w-full aspect-square max-w-xl mx-auto">
               <iframe
-                src='https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/'
-                width='100%'
-                height='100%'
-                frameBorder='0'
+                src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/"
+                width="100%"
+                height="100%"
+                frameBorder="0"
                 title="Spline 3D Scene"
               />
             </div> 
