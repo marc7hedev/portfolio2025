@@ -71,7 +71,7 @@ const services = [
 
 export function SkillsSection() {
     return (
-        <section id="skills" className="py-20">
+        <section id="skills" className="w-full py-20 overflow-hidden">
             <div className="container mx-auto px-4">
                 <AnimatedSection>
                     <motion.h2
@@ -85,7 +85,7 @@ export function SkillsSection() {
                 </AnimatedSection>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <CardWithTrail title="Habilidades">
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 overflow-y-auto">
                             {skills.map((skill, index) => (
                                 <AnimatedSection
                                     key={skill.name}
@@ -116,7 +116,7 @@ export function SkillsSection() {
                     </CardWithTrail>
                     
                     <CardWithTrail title="Servicios">
-                        <ul className="space-y-4">
+                        <ul className="space-y-4 overflow-y-auto">
                             {services.map((service, index) => (
                                 <AnimatedSection
                                     key={service.title}
