@@ -1,58 +1,28 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { MessageCircle } from "lucide-react"
+import { ButtonWithGlow } from "@/components/ui/button-with-glow"
 
 export function WhatsAppButton() {
-  const whatsappNumber = "+524731221262" // Reemplazar con tu número de WhatsApp
-  const whatsappUrl = `https://wa.me/${whatsappNumber}`
-
   return (
     <motion.div
-      className="fixed bottom-8 right-8 z-50"
+      className="fixed bottom-4 right-4 z-50"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 15,
-        delay: 0.5
+      whileHover={{
+        scale: 1.1,
+        transition: { type: "spring", stiffness: 400, damping: 10 }
       }}
+      transition={{ delay: 0 }}
     >
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+      <ButtonWithGlow
+        onClick={() => window.open("https://wa.me/+524771399545", "_blank")}
+        size="icon"
+        className="h-12 w-12 rounded bg-[#000000] hover:bg-[#25D366]/90"
       >
-        <Button
-          size="lg"
-          variant="default"
-          className="rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all"
-          asChild
-        >
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contactar por WhatsApp"
-          >
-            <motion.div
-              animate={{
-                rotate: [0, 5, -5, 5, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-                repeatDelay: 4
-              }}
-            >
-              <MessageCircle className="w-5 h-5" />
-            </motion.div>
-          </a>
-        </Button>
-      </motion.div>
+        <MessageCircle className="h-6 w-6 text-white" />
+      </ButtonWithGlow>
     </motion.div>
   )
 }

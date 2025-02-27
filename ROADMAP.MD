@@ -1,11 +1,11 @@
 ## Lista de Tareas (TODO)
-- [ ] Corregir hoover de botón de descargas.
+- [*] Corregir hoover de botón de descargas.
 - [ ] Añadir efectos text en diferentes secciones
 - [ ] Añadir efectos hover a cards de contacto
-- [ ] Corregir botón de like
-- [ ] Corregir contador de visitas
+- [ ] Corregir botón de like (añadir likes reales)
+- [ ] Corregir contador de visitas (reales)
 - [ ] Botón de enviar formulario y whatsapp también con efecto glow
-- [ ] 
-- [ ] 
+- [ ] Darle forma al iframe de spline para que luzca mejor en light mode
+- [ ] Al deslizar a la sección de visitas en sidebar, abrir una animación shadcn que el no. visitas grande y elegante (Open Drawer)
 - [ ] 
 - [ ] 

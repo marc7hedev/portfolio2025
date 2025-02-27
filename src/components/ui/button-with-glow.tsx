@@ -19,7 +19,7 @@ export function ButtonWithGlow({
   glowColors = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'],
   glowMode = 'colorShift',
   glowDuration = 3,
-  glowScale = 0.9,
+  glowScale = 0.90,
   glowBlur = 'soft',
   children,
   ...props
@@ -37,7 +37,7 @@ export function ButtonWithGlow({
         mode={glowMode}
         blur={glowBlur}
         duration={glowDuration}
-        scale={isHovered ? glowScale * 1.2 : glowScale}
+        scale={isHovered ? glowScale * 1.1 : glowScale}
         style={{
           transition: 'all 0.3s ease'
         }}
