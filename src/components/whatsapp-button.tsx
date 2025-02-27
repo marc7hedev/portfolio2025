@@ -17,7 +17,7 @@ export function WhatsAppButton() {
       transition={{ delay: 0 }}
     >
       <ButtonWithGlow
-        onClick={() => window.open("https://wa.me/+524771399545?text=¡Hola!%20Quisiera%20obtener%20más%20información.")}
+        onClick={() => window.open("https://wa.me/+524731221262?text=¡Hola!%20Quisiera%20obtener%20más%20información.")}
         size="icon"
         className="h-12 w-12 rounded bg-[#000000] hover:bg-[#25D366]/90"
       >
