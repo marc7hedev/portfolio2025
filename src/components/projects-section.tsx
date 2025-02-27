@@ -42,7 +42,7 @@ const projects = [
     category: "mobile",
     technologies: ["Wordpress", "Elementor", "Js", "Google Analytics"],
     githubUrl: "https://ferre-medina.marco-rangel.com/",
-    demoUrl: "https://weather-forecast-demo.vercel.app",
+    demoUrl: "https://ferre-medina.marco-rangel.com/",
   },
   {
     id: 4,
@@ -64,6 +64,37 @@ const projects = [
     githubUrl: "https://github.com/marc7hedev/portfolio2024",
     demoUrl: "https://portfolio2024.marco-rangel.com/",
   },
+  {
+    id: 9,
+    title: "Portafolio personal 2024",
+    description: "Sencilla y minimalista aplicación web de reproductor de música haciendo uso de la API de audio de Javascript.",
+    videoUrl: "/videos/cube.gif",
+    category: "mobile",
+    technologies: ["Css", "Javascript"],
+    githubUrl: "https://github.com/marc7hedev/portfolio2024",
+    demoUrl: "https://portfolio2024.marco-rangel.com/",
+  },
+  {
+    id: 8,
+    title: "Portafolio personal 2024",
+    description: "Portafolio personal creado con React y Framer Motion.",
+    videoUrl: "/videos/portfolio-2024.mp4",
+    category: "mobile",
+    technologies: ["React", "Framermotion", "Sass"],
+    githubUrl: "https://github.com/marc7hedev/portfolio2024",
+    demoUrl: "https://portfolio2024.marco-rangel.com/",
+  },
+  {
+    id: 9,
+    title: "Portafolio personal 2024",
+    description: "Sencilla y minimalista aplicación web de reproductor de música haciendo uso de la API de audio de Javascript.",
+    videoUrl: "/videos/cube.gif",
+    category: "mobile",
+    technologies: ["Css", "Javascript"],
+    githubUrl: "https://github.com/marc7hedev/portfolio2024",
+    demoUrl: "https://portfolio2024.marco-rangel.com/",
+  },
+
 ]
 
 export function ProjectsSection() {
@@ -100,14 +131,22 @@ export function ProjectsSection() {
                         >
                           <CardWithTrail trailColor="green">
                             <CardHeader className="p-0">
-                              <video
-                                src={project.videoUrl}
-                                className="w-full h-full object-cover rounded-t-md"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                              />
+                              {project.videoUrl.endsWith('.gif') ? (
+                                <img
+                                  src={project.videoUrl}
+                                  alt={project.title}
+                                  className="w-full h-[200px] object-cover rounded-t-md"
+                                />
+                              ) : (
+                                <video
+                                  src={project.videoUrl}
+                                  className="w-full h-[200px] object-cover rounded-t-md"
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                />
+                              )}
                             </CardHeader>
                             <CardContent className="p-4">
                               <CardTitle>{project.title}</CardTitle>
@@ -168,7 +207,19 @@ export function ProjectsSection() {
                         <DialogTitle>{project.title}</DialogTitle>
                         <DialogDescription>{project.description}</DialogDescription>
                       </DialogHeader>
-                      <video src={project.videoUrl} className="w-full h-64 object-cover rounded-lg" controls />
+                      {project.videoUrl.endsWith('.gif') ? (
+                        <img
+                          src={project.videoUrl}
+                          alt={project.title}
+                          className="w-full h-64 object-cover rounded-lg"
+                        />
+                      ) : (
+                        <video
+                          src={project.videoUrl}
+                          className="w-full h-64 object-cover rounded-lg"
+                          controls
+                        />
+                      )}
                       <div className="mt-4">
                         <h4 className="font-semibold mb-2">Tecnologías utilizadas:</h4>
                         <div className="flex flex-wrap gap-2">
