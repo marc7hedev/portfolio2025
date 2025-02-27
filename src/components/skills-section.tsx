@@ -12,6 +12,10 @@ import {
     SiPrisma,
     SiPostgresql,
     SiPhp,
+    SiAdminer, 
+    SiWebpack,
+    SiInductiveautomation,
+    SiRobotframework
 } from "react-icons/si";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
@@ -24,11 +28,10 @@ const skills = [
         color: "border-[#61DAFB] text-[#61DAFB] hover:bg-[#61DAFB]/10",
         description: "Desarrollo de interfaces de usuario modernas y reactivas con React. Experiencia en hooks, context, y patrones de diseño avanzados.",
         details: [
-            "Gestión de estado con Redux y Context API",
-            "Custom Hooks",
             "Optimización de rendimiento",
             "Server Side Rendering con Next.js",
-            "Testing con Jest y React Testing Library"
+            "Uso de Tailwind para diseños modernos y atractivos",
+            "Framer Motion para animaciones fluidas",
         ]
     },
     {
@@ -39,9 +42,8 @@ const skills = [
         details: [
             "Server Components y Client Components",
             "Optimización de rutas y carga",
-            "API Routes y Edge Functions",
             "Integración con bases de datos",
-            "Despliegue en Vercel"
+            "Despliegue en Vercel y Railway"
         ]
     },
     {
@@ -50,11 +52,10 @@ const skills = [
         color: "border-[#339933] text-[#339933] hover:bg-[#339933]/10",
         description: "Desarrollo backend con Node.js. Experiencia en APIs RESTful y arquitecturas escalables.",
         details: [
-            "Express.js y NestJS",
+            "Backend con Express.js",
             "Autenticación y Autorización",
-            "Manejo de WebSockets",
             "Integración con bases de datos",
-            "Microservicios"
+            "Aprendiendo Typescript"
         ]
     },
     {
@@ -78,9 +79,7 @@ const skills = [
         details: [
             "Modelado de bases de datos",
             "Migraciones y seeding",
-            "Relaciones y consultas complejas",
             "Integración con PostgreSQL",
-            "Prisma Studio"
         ]
     },
     {
@@ -91,20 +90,15 @@ const skills = [
         details: [
             "Diseño de esquemas",
             "Optimización de consultas",
-            "Stored procedures",
-            "Backup y restauración",
-            "Replicación"
         ]
     },
     {
         name: "PHP",
         icon: SiPhp,
         color: "border-[#777BB4] text-[#777BB4] hover:bg-[#777BB4]/10",
-        description: "Desarrollo backend con PHP. Experiencia en Laravel y WordPress.",
+        description: "Desarrollo backend con PHP. Experiencia en WordPress.",
         details: [
-            "Laravel Framework",
             "WordPress Development",
-            "APIs RESTful",
             "Integración con MySQL",
             "Plugins y temas personalizados"
         ]
@@ -114,9 +108,10 @@ const skills = [
 const services = [
     {
         title: "Desarrollo de Aplicaciones Web",
+        icon: SiWebpack,
+        color: "border-[#38B2AC] text-[#38B2AC] hover:bg-[#38B2AC]/10",
         description: "Creación de sitios web modernos y responsivos",
         details: [
-            "Aplicaciones web progresivas (PWA)",
             "Optimización de rendimiento y SEO",
             "Integración con APIs externas",
             "Diseño responsivo y mobile-first",
@@ -125,24 +120,28 @@ const services = [
     },
     {
         title: "Automatizaciones",
+        icon: SiRobotframework,
+        color: "border-[#5A67D8] text-[#5A67D8] hover:bg-[#5A67D8]/10",
         description: "Implemento soluciones que ayuden a automatizar procesos repetitivos de manera eficiente",
         details: [
             "Scripts de automatización personalizados",
             "Integración de sistemas",
             "Procesamiento de datos automatizado",
             "Reportes automatizados",
-            "Monitoreo y alertas"
         ]
     },
     {
         title: "Implementación de procesos ETL (Extract, Transform, Load)",
+        icon: SiInductiveautomation,
+        color: "border-[#61DAFB] text-[#61DAFB] hover:bg-[#61DAFB]/10",
         description: "Migraciones de datos de sistemas legados a nuevas plataformas",
         details: [
             "Análisis de datos fuente",
             "Limpieza y transformación de datos",
             "Validación y control de calidad",
             "Migración incremental",
-            "Documentación del proceso"
+            "Documentación del proceso",
+            "Salesforce BulkAPI 2.0"
         ]
     },
 ];
@@ -290,7 +289,10 @@ export function SkillsSection() {
                             <div className="space-y-6 mt-4">
                                 {services.map((service) => (
                                     <div key={service.title} className="space-y-2">
+                                        <div className="flex items-center gap-2">
+                                        <service.icon className={cn("h-6 w-6", service.color)} />
                                         <h3 className="text-lg font-semibold">{service.title}</h3>
+                                        </div>
                                         <p className="text-muted-foreground">{service.description}</p>
                                         <ul className="list-disc list-inside space-y-1 pl-4">
                                             {service.details.map((detail, index) => (
