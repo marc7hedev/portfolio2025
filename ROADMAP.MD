@@ -1,7 +1,7 @@
 ## Lista de Tareas (TODO)
 - [*] Corregir hoover de botón de descargas.
 - [ ] Añadir efectos text en diferentes secciones
-- [ ] Añadir efectos hover a cards de contacto
+- [*] Añadir efectos hover a cards de contacto
 - [ ] Corregir botón de like (añadir likes reales)
 - [ ] Corregir contador de visitas (reales)
 - [ ] Botón de enviar formulario y whatsapp también con efecto glow

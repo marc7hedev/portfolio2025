@@ -11,6 +11,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Play, MoreVertical, Github, CirclePlus } from "lucide-react"
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { CardWithTrail } from "@/components/ui/card-with-trail"
+import { LikeCounter } from "@/components/ui/like-counter"
 
 const projects = [
   {
@@ -196,6 +197,9 @@ export function ProjectsSection() {
                                   </DropdownMenuItem>
                                 </DropdownMenuContent>
                               </DropdownMenu>
+                              <div className="mt-2">
+                                <LikeCounter />
+                              </div>
                             </CardFooter>
                           </CardWithTrail>
                         </motion.div>
