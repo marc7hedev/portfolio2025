@@ -95,7 +95,6 @@ const projects = [
     githubUrl: "https://marc7hedev.github.io/Password-Generator/",
     demoUrl: "https://marc7hedev.github.io/Password-Generator/",
   },
-
 ]
 
 export function ProjectsSection() {
@@ -198,7 +197,7 @@ export function ProjectsSection() {
                                 </DropdownMenuContent>
                               </DropdownMenu>
                               <div className="mt-2">
-                                <LikeCounter />
+                                <LikeCounter type="project" projectId={project.id} />
                               </div>
                             </CardFooter>
                           </CardWithTrail>
