@@ -8,4 +8,8 @@
 
 ### Phase 3: "State of the Art" Enhancements
 *Objective: Add polish and differentiation.*
-- **Micro-interactions**: Hover effects, scroll-triggered animations (using Intersection Observer or Motion).
+- **Micro-interactions**: 
+    - Implemented `ScrollProgress` bar for reading position.
+    - Added `Magnetic` component for premium button feel.
+    - Enhanced `HeroSection` with magnetic CV download button.
+- **Accessibility**: Ensure high contrast, proper tab index, and screen reader compatibility.

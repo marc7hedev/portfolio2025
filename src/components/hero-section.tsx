@@ -8,6 +8,7 @@ import { LikeCounter } from "@/components/ui/like-counter"
 import { ButtonWithGlow } from "@/components/ui/button-with-glow"
 import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
+import { Magnetic } from "@/components/ui/magnetic"
 
 export function HeroSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false)
@@ -55,13 +56,15 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex justify-center md:justify-start gap-4 items-center"
               >
-                <ButtonWithGlow
-                  onClick={() => {
-                    window.open("/pdf/cv2025.pdf", "_blank")
-                  }}
-                >
-                  <Download className="mr-2 h-4 w-4" /> Descargar CV
-                </ButtonWithGlow>
+                <Magnetic>
+                  <ButtonWithGlow
+                    onClick={() => {
+                      window.open("/pdf/cv2025.pdf", "_blank")
+                    }}
+                  >
+                    <Download className="mr-2 h-4 w-4" /> Descargar CV
+                  </ButtonWithGlow>
+                </Magnetic>
                 <LikeCounter type="portfolio" />
               </motion.div>
             </div>

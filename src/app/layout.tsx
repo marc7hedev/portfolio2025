@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 
 import { JsonLd } from "@/components/json-ld"
 
+import { ScrollProgress } from "@/components/ui/scroll-progress"
+
 export default function RootLayout({
   children,
 }: {
@@ -39,6 +41,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Providers>
+            <ScrollProgress />
             {children}
         </Providers>
       </body>
