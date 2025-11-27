@@ -65,11 +65,13 @@ export function HeroSection() {
           <AnimatedSection delay={0.2}>
             <div className="relative w-full aspect-square max-w-xl mx-auto">
               <iframe
-                src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61944964f0d/"
+                src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/"
                 width="100%"
                 height="100%"
                 frameBorder="0"
+                loading="lazy"
                 title="Spline 3D Scene"
+                allow="autoplay; fullscreen"
               />
             </div> 
           </AnimatedSection>
@@ -78,3 +80,4 @@ export function HeroSection() {
     </section>
   )
 }
+

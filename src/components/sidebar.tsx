@@ -16,6 +16,7 @@ import { VisitCounter } from "@/components/visit-counter"
 const menuItems = [
   { icon: Home, label: "Inicio", href: "#home" },
   { icon: Code, label: "Habilidades", href: "#skills" },
+  { icon: Briefcase, label: "Experiencia", href: "#experience" },
   { icon: Briefcase, label: "Proyectos", href: "#projects" },
   { icon: Mail, label: "Contacto", href: "#contact" },
 ]

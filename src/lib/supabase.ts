@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Estas variables se actualizarán con las credenciales reales de Supabase
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// Credenciales de Supabase (normalmente esto estaría en variables de entorno)
+const supabaseUrl = 'https://zqvvvezacbmdpbuzdlxo.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxdnZ2ZXphY2JtZHBidXpkbHhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3ODU4MDUsImV4cCI6MjA1NjM2MTgwNX0.LGeK2NicHSXjgMxqa3rBI1cY_htMK3910LEUIxFWl9s';
 
 // Crear el cliente de Supabase
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
