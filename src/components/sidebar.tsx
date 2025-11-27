@@ -8,7 +8,7 @@ import { useSidebar } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { ChevronLeft, Menu, Home, Briefcase, Code, Mail } from "lucide-react"
+import { ChevronLeft, Menu, Home, Code, Mail, FolderOpen } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { ModeToggle } from "@/components/mode-toggle"
 import { VisitCounter } from "@/components/visit-counter"
@@ -16,8 +16,7 @@ import { VisitCounter } from "@/components/visit-counter"
 const menuItems = [
   { icon: Home, label: "Inicio", href: "#home" },
   { icon: Code, label: "Habilidades", href: "#skills" },
-  { icon: Briefcase, label: "Experiencia", href: "#experience" },
-  { icon: Briefcase, label: "Proyectos", href: "#projects" },
+  { icon: FolderOpen, label: "Proyectos", href: "#projects" },
   { icon: Mail, label: "Contacto", href: "#contact" },
 ]
 

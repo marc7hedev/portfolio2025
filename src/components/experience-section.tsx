@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { CardWithTrail } from "@/components/ui/card-with-trail"
 import { Badge } from "@/components/ui/badge"
@@ -84,74 +83,59 @@ const experiences: ExperienceItem[] = [
   }
 ]
 
-export function ExperienceSection() {
+export function ExperienceContent() {
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl font-bold mb-12 text-center"
-          >
-            Experiencia Profesional
-          </motion.h2>
-        </AnimatedSection>
-
-        <div className="max-w-4xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <CardWithTrail trailColor={exp.trailColor}>
-                <div className="flex flex-col md:flex-row gap-4 md:items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold flex items-center gap-2">
-                      <Building2 className="w-5 h-5 text-primary" />
-                      {exp.company}
-                    </h3>
-                    <p className="text-lg font-medium text-muted-foreground flex items-center gap-2 mt-1">
-                      <Briefcase className="w-4 h-4" />
-                      {exp.role}
-                    </p>
-                  </div>
-                  <div className="text-sm text-muted-foreground space-y-1">
-                    <div className="flex items-center gap-2 md:justify-end">
-                      <Calendar className="w-4 h-4" />
-                      {exp.date}
-                    </div>
-                    {exp.location && (
-                      <div className="flex items-center gap-2 md:justify-end">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
-                      </div>
-                    )}
-                  </div>
+    <div className="max-w-4xl mx-auto space-y-8 py-4">
+      {experiences.map((exp, index) => (
+        <AnimatedSection key={index} delay={index * 0.1}>
+          <CardWithTrail trailColor={exp.trailColor}>
+            <div className="flex flex-col md:flex-row gap-4 md:items-start justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-primary" />
+                  {exp.company}
+                </h3>
+                <p className="text-lg font-medium text-muted-foreground flex items-center gap-2 mt-1">
+                  <Briefcase className="w-4 h-4" />
+                  {exp.role}
+                </p>
+              </div>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <div className="flex items-center gap-2 md:justify-end">
+                  <Calendar className="w-4 h-4" />
+                  {exp.date}
                 </div>
-
-                <p className="mb-4 text-muted-foreground">{exp.description}</p>
-
-                {exp.achievements && (
-                  <ul className="list-disc list-inside space-y-2 mb-4 text-sm text-muted-foreground">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
-                    ))}
-                  </ul>
-                )}
-
-                {exp.stack && (
-                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/50">
-                    {exp.stack.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
+                {exp.location && (
+                  <div className="flex items-center gap-2 md:justify-end">
+                    <MapPin className="w-4 h-4" />
+                    {exp.location}
                   </div>
                 )}
-              </CardWithTrail>
-            </AnimatedSection>
-          ))}
-        </div>
-      </div>
-    </section>
+              </div>
+            </div>
+
+            <p className="mb-4 text-muted-foreground">{exp.description}</p>
+
+            {exp.achievements && (
+              <ul className="list-disc list-inside space-y-2 mb-4 text-sm text-muted-foreground">
+                {exp.achievements.map((achievement, i) => (
+                  <li key={i}>{achievement}</li>
+                ))}
+              </ul>
+            )}
+
+            {exp.stack && (
+              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/50">
+                {exp.stack.map((tech) => (
+                  <Badge key={tech} variant="secondary" className="text-xs">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          </CardWithTrail>
+        </AnimatedSection>
+      ))}
+    </div>
   )
 }

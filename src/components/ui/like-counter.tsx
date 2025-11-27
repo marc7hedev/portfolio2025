@@ -18,15 +18,14 @@ export function LikeCounter({ type, projectId }: LikeCounterProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchLikes = async () => {
+      setLoading(true);
+      const count = await getLikes(type, projectId);
+      setValue(count);
+      setLoading(false);
+    };
     fetchLikes();
   }, [type, projectId]);
-
-  const fetchLikes = async () => {
-    setLoading(true);
-    const count = await getLikes(type, projectId);
-    setValue(count);
-    setLoading(false);
-  };
 
   const handleLike = async () => {
     const success = await incrementLikes(type, projectId);

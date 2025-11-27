@@ -12,19 +12,14 @@ import {
     SiPrisma,
     SiPostgresql,
     SiPhp,
-    SiAdminer, 
     SiWebpack,
     SiInductiveautomation,
     SiRobotframework,
 } from "react-icons/si";
 import { 
     Terminal, 
-    BarChart3, 
     Workflow, 
-    Database, 
-    AppWindow, 
     Share2, 
-    Cloud 
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";

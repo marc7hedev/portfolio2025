@@ -9,6 +9,9 @@ import { ButtonWithGlow } from "@/components/ui/button-with-glow"
 import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 import { Magnetic } from "@/components/ui/magnetic"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { ExperienceContent } from "@/components/experience-section"
+import { User } from "lucide-react"
 
 export function HeroSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false)
@@ -66,6 +69,26 @@ export function HeroSection() {
                   </ButtonWithGlow>
                 </Magnetic>
                 <LikeCounter type="portfolio" />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="inline-block">
+                      <Magnetic>
+                        <ButtonWithGlow variant="outline" glowColors={['#33FF57', '#3357FF']}>
+                          <User className="mr-2 h-4 w-4" /> Más acerca de mí
+                        </ButtonWithGlow>
+                      </Magnetic>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle>Experiencia Profesional</DialogTitle>
+                      <DialogDescription>
+                        Mi trayectoria en el ecosistema Microsoft Power Platform y Desarrollo Web.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ExperienceContent />
+                  </DialogContent>
+                </Dialog>
               </motion.div>
             </div>
           </AnimatedSection>
