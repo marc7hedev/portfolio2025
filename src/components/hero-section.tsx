@@ -98,20 +98,22 @@ export function HeroSection() {
               {!isIframeLoaded && (
                 <Skeleton className="absolute inset-0 w-full h-full rounded-full bg-muted/20 animate-pulse" />
               )}
-              <iframe
-                src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                loading="lazy"
-                title="Spline 3D Scene"
-                allow="autoplay; fullscreen"
-                onLoad={() => setIsIframeLoaded(true)}
-                className={cn(
-                  "transition-opacity duration-700",
-                  isIframeLoaded ? "opacity-100" : "opacity-0"
-                )}
-              />
+              <div className="relative w-full h-full">
+                <iframe
+                  src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  loading="lazy"
+                  title="Spline 3D Scene"
+                  allow="autoplay; fullscreen"
+                  onLoad={() => setIsIframeLoaded(true)}
+                  className={cn(
+                    "w-full h-full transition-opacity duration-700",
+                    isIframeLoaded ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </div>
             </div> 
           </AnimatedSection>
         </div>
