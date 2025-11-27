@@ -1,12 +1,17 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Download } from "lucide-react"
 import { LikeCounter } from "@/components/ui/like-counter"
 import { ButtonWithGlow } from "@/components/ui/button-with-glow"
+import { Skeleton } from "@/components/ui/skeleton"
+import { cn } from "@/lib/utils"
 
 export function HeroSection() {
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false)
+
   return (
     <section id="home" className="min-h-screen flex items-center">
       <div className="container mx-auto px-4">
@@ -64,6 +69,9 @@ export function HeroSection() {
 
           <AnimatedSection delay={0.2}>
             <div className="relative w-full aspect-square max-w-xl mx-auto">
+              {!isIframeLoaded && (
+                <Skeleton className="absolute inset-0 w-full h-full rounded-full bg-muted/20 animate-pulse" />
+              )}
               <iframe
                 src="https://my.spline.design/chips-27f034f03cb7a5afc1a2d61948964f0d/"
                 width="100%"
@@ -72,6 +80,11 @@ export function HeroSection() {
                 loading="lazy"
                 title="Spline 3D Scene"
                 allow="autoplay; fullscreen"
+                onLoad={() => setIsIframeLoaded(true)}
+                className={cn(
+                  "transition-opacity duration-700",
+                  isIframeLoaded ? "opacity-100" : "opacity-0"
+                )}
               />
             </div> 
           </AnimatedSection>

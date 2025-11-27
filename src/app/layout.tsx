@@ -1,10 +1,7 @@
 import './globals.css'
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { SidebarProvider } from "@/components/ui/sidebar"
-import { Toaster } from "@/components/ui/toaster"
-import { WhatsAppButton } from "@/components/whatsapp-button"
+import { Providers } from "@/components/providers"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,13 +18,9 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <SidebarProvider defaultOpen>
+        <Providers>
             {children}
-            <WhatsAppButton />
-            <Toaster />
-          </SidebarProvider>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )
