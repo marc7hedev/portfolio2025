@@ -40,9 +40,9 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-xl text-muted-foreground"
+                className="text-xl text-muted-foreground max-w-2xl"
               >
-                Web Developer & IT Specialist
+                Ingeniero en Sistemas Computacionales especializado en el ecosistema Microsoft Power Platform y Desarrollo Web Full Stack.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

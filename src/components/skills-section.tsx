@@ -15,8 +15,17 @@ import {
     SiAdminer, 
     SiWebpack,
     SiInductiveautomation,
-    SiRobotframework
+    SiRobotframework,
 } from "react-icons/si";
+import { 
+    Terminal, 
+    BarChart3, 
+    Workflow, 
+    Database, 
+    AppWindow, 
+    Share2, 
+    Cloud 
+} from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
 import { CardWithTrail } from "@/components/ui/card-with-trail";
@@ -101,6 +110,42 @@ const skills = [
             "WordPress Development",
             "Integración con MySQL",
             "Plugins y temas personalizados"
+        ]
+    },
+    {
+        name: "Power Platform",
+        icon: Workflow,
+        color: "border-[#742774] text-[#742774] hover:bg-[#742774]/10",
+        description: "Desarrollo de soluciones empresariales low-code/no-code.",
+        details: [
+            "Power Apps (Canvas & Model-driven)",
+            "Power Automate (Cloud Flows)",
+            "Power BI (DAX & Data Modeling)",
+            "Dataverse & Connectors"
+        ]
+    },
+    {
+        name: "SharePoint",
+        icon: Share2,
+        color: "border-[#0078D4] text-[#0078D4] hover:bg-[#0078D4]/10",
+        description: "Gestión documental y desarrollo de intranets.",
+        details: [
+            "SharePoint Lists como Backend",
+            "Custom Scripts",
+            "Integración con Power Platform",
+            "Gestión de permisos"
+        ]
+    },
+    {
+        name: "PowerShell",
+        icon: Terminal,
+        color: "border-[#5391FE] text-[#5391FE] hover:bg-[#5391FE]/10",
+        description: "Automatización de tareas administrativas y scripting avanzado.",
+        details: [
+            "Advanced Scripting",
+            "WinForms GUI Development",
+            "Active Directory Management",
+            "System Administration"
         ]
     },
 ];
