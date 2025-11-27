@@ -131,14 +131,33 @@ const initializeVisits = async () => {
 
 export const incrementVisits = async () => {
   try {
-    // Primero asegurarse de que existe el registro
-    await getVisits();
+    // 1. Obtener el registro actual para tener el ID
+    const { data, error: fetchError } = await supabase
+      .from('visits')
+      .select('id, count')
+      .limit(1);
 
-    // Usar la función RPC para incrementar
-    const { error } = await supabase.rpc('increment_visits');
+    if (fetchError) {
+      console.error('Error fetching visits for increment:', fetchError.message);
+      return false;
+    }
 
-    if (error) {
-      console.error('Supabase error:', error.message);
+    // Si no existe, inicializar
+    if (!data || data.length === 0) {
+      await initializeVisits();
+      return true;
+    }
+
+    const row = data[0];
+
+    // 2. Actualizar usando el ID específico (esto soluciona el error de WHERE clause)
+    const { error: updateError } = await supabase
+      .from('visits')
+      .update({ count: row.count + 1 })
+      .eq('id', row.id);
+
+    if (updateError) {
+      console.error('Supabase error updating visits:', updateError.message);
       return false;
     }
     
