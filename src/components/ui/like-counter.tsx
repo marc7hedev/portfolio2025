@@ -27,7 +27,10 @@ export function LikeCounter({ type, projectId }: LikeCounterProps) {
     fetchLikes();
   }, [type, projectId]);
 
-  const handleLike = async () => {
+  const handleLike = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const success = await incrementLikes(type, projectId);
     
     if (success) {
