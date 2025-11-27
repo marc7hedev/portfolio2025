@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Users } from "lucide-react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { getVisits, incrementVisits } from "@/lib/supabase"
 
 interface VisitCounterProps {
   isCollapsed: boolean
@@ -27,26 +28,31 @@ export function VisitCounter({ isCollapsed, isMobile = false }: VisitCounterProp
   const [visits, setVisits] = useState(0)
 
   useEffect(() => {
-    // Obtener las visitas actuales
-    const storedVisits = localStorage.getItem("pageVisits") || "0"
-    const currentVisits = parseInt(storedVisits)
-    
-    // Obtener la última visita
-    const lastVisit = localStorage.getItem("lastVisit")
-    const now = new Date()
-    const today = now.toDateString()
-    
-    // Verificar si es una nueva visita (primer acceso del día)
-    if (!lastVisit || lastVisit !== today) {
-      // Incrementar el contador solo si es un nuevo día
-      const newVisits = currentVisits + 1
-      localStorage.setItem("pageVisits", newVisits.toString())
-      localStorage.setItem("lastVisit", today)
-      setVisits(newVisits)
-    } else {
-      // Si no es una nueva visita, solo mostrar el contador actual
-      setVisits(currentVisits)
+    const fetchAndIncrementVisits = async () => {
+      // 1. Obtener visitas actuales del servidor
+      const serverVisits = await getVisits()
+      
+      // 2. Verificar si ya visitó hoy (Local Storage)
+      const lastVisit = localStorage.getItem("lastVisit")
+      const now = new Date()
+      const today = now.toDateString()
+      
+      if (!lastVisit || lastVisit !== today) {
+        // 3. Si es nuevo día, incrementar en servidor
+        const success = await incrementVisits()
+        if (success) {
+          setVisits(serverVisits + 1)
+          localStorage.setItem("lastVisit", today)
+        } else {
+          setVisits(serverVisits) // Fallback si falla el incremento
+        }
+      } else {
+        // 4. Si ya visitó, solo mostrar el valor del servidor
+        setVisits(serverVisits)
+      }
     }
+
+    fetchAndIncrementVisits()
   }, [])
 
   return (
