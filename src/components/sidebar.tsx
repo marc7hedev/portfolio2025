@@ -33,35 +33,22 @@ const menuItemVariants = {
   }
 }
 
-export function AppSidebar() {
-  const { isCollapsed, setIsCollapsed } = useSidebar()
-  const isDesktop = useMediaQuery("(min-width: 768px)")
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [activeItem, setActiveItem] = React.useState("")
+interface SidebarContentProps {
+  isCollapsed: boolean
+  setIsCollapsed: (collapsed: boolean) => void
+  activeItem: string
+  isMobile?: boolean
+  setIsOpen?: (open: boolean) => void
+}
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      // Detectar sección activa
-      const sections = menuItems.map(item => item.href.substring(1))
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      
-      if (currentSection) {
-        setActiveItem(`#${currentSection}`)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const SidebarContent = ({ isMobile = false }) => (
+function SidebarContent({ 
+  isCollapsed, 
+  setIsCollapsed, 
+  activeItem, 
+  isMobile = false,
+  setIsOpen 
+}: SidebarContentProps) {
+  return (
     <>
       <div className="flex h-[60px] items-center justify-between px-4 border-b">
         <motion.div
@@ -119,7 +106,7 @@ export function AppSidebar() {
             >
               <Link
                 href={item.href}
-                onClick={() => isMobile && setIsOpen(false)}
+                onClick={() => isMobile && setIsOpen?.(false)}
                 className={cn(
                   "flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                   "hover:bg-accent hover:text-accent-foreground",
@@ -177,6 +164,35 @@ export function AppSidebar() {
       </div>
     </>
   )
+}
+
+export function AppSidebar() {
+  const { isCollapsed, setIsCollapsed } = useSidebar()
+  const isDesktop = useMediaQuery("(min-width: 768px)")
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [activeItem, setActiveItem] = React.useState("")
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      // Detectar sección activa
+      const sections = menuItems.map(item => item.href.substring(1))
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      
+      if (currentSection) {
+        setActiveItem(`#${currentSection}`)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   if (!isDesktop) {
     return (
@@ -194,7 +210,13 @@ export function AppSidebar() {
           <SheetHeader className="sr-only">
             <SheetTitle>Menú de navegación</SheetTitle>
           </SheetHeader>
-          <SidebarContent isMobile />
+          <SidebarContent 
+            isMobile 
+            isCollapsed={false} 
+            setIsCollapsed={setIsCollapsed}
+            activeItem={activeItem}
+            setIsOpen={setIsOpen}
+          />
         </SheetContent>
       </Sheet>
     )
@@ -209,8 +231,11 @@ export function AppSidebar() {
         isCollapsed && "w-16"
       )}
     >
-      <SidebarContent />
+      <SidebarContent 
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+        activeItem={activeItem}
+      />
     </motion.aside>
   )
 }
-
