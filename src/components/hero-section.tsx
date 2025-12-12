@@ -33,12 +33,12 @@ export function HeroSection() {
           allow="autoplay; fullscreen"
           onLoad={() => setIsIframeLoaded(true)}
           className={cn(
-            "w-full h-full object-cover transition-opacity duration-700",
+            "w-[50%] h-[50%] object-cover transition-opacity duration-100 origin-top-left scale-[200%]",
             isIframeLoaded ? "opacity-100" : "opacity-0"
           )}
         />
         {/* Overlay gradient to ensure text readability if needed */}
-        <div className="absolute inset-0 bg-background/30 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1.5px]" />
       </div>
 
       {/* Content Overlay */}
@@ -122,4 +122,6 @@ export function HeroSection() {
     </section>
   )
 }
+
+
 

@@ -29,6 +29,8 @@ import { JsonLd } from "@/components/json-ld"
 
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 
+import AIChat from "@/components/AIChat"
+
 export default function RootLayout({
   children,
 }: {
@@ -43,6 +45,7 @@ export default function RootLayout({
         <Providers>
             <ScrollProgress />
             {children}
+            <AIChat />
         </Providers>
       </body>
     </html>
