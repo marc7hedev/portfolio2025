@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Sparkles, User, Bot } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { ButtonWithGlow } from "@/components/ui/button-with-glow";
 
 interface ChatMessage {
   role: 'user' | 'model';
@@ -156,23 +157,32 @@ const AIChat: React.FC = () => {
 
       {/* Floating Toggle Button */}
       {/* Positioned at bottom-20 (80px) to sit ABOVE the WhatsApp button (bottom-4) */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className={`fixed bottom-20 right-4 z-50 p-3 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 border border-white/10 ${
-            isOpen 
-            ? 'bg-zinc-800 text-white' 
-            : 'bg-zinc-950 text-white hover:bg-zinc-900'
-        }`}
+      {/* Floating Toggle Button */}
+      {/* Positioned at bottom-20 (80px) to sit ABOVE the WhatsApp button (bottom-4) */}
+      <motion.div
+        className="fixed bottom-20 right-4 z-50"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{
+            scale: 1.1,
+            transition: { type: "spring", stiffness: 400, damping: 10 }
+        }}
       >
-        {/* Glow effect container */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-        
-        <div className="relative z-10">
-            {isOpen ? <X size={24} /> : <MessageSquare size={24} className={!isOpen ? "animate-pulse" : ""} />}
-        </div>
-      </motion.button>
+        <ButtonWithGlow
+            onClick={() => setIsOpen(!isOpen)}
+            size="icon"
+            className={`h-12 w-12 rounded transition-all duration-300 ${
+                isOpen 
+                ? 'bg-zinc-800' 
+                : 'bg-[#000000] hover:bg-zinc-900'
+            }`}
+            glowColors={['#A855F7', '#3B82F6', '#6366F1']} // Purple/Blue gradient for AI
+        >
+            <div className="relative z-10">
+                {isOpen ? <X size={24} className="text-white" /> : <MessageSquare size={24} className={`text-white ${!isOpen ? "animate-pulse" : ""}`} />}
+            </div>
+        </ButtonWithGlow>
+      </motion.div>
     </>
   );
 };
