@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Download } from "lucide-react"
@@ -16,6 +16,14 @@ import { User } from "lucide-react"
 export function HeroSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false)
 
+  // Fallback de seguridad: si el evento onLoad falla o tarda mucho, mostramos el iframe de todas formas
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsIframeLoaded(true)
+    }, 2000) // 2 segundos máximo de espera antes de forzar la visibilidad
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center">
       {/* Background Spline Scene */}
@@ -28,12 +36,12 @@ export function HeroSection() {
           width="100%"
           height="100%"
           frameBorder="0"
-          loading="lazy"
+          loading="eager" // Importante: Eager para que cargue inmediato
           title="Spline 3D Scene"
           allow="autoplay; fullscreen"
           onLoad={() => setIsIframeLoaded(true)}
           className={cn(
-            "w-[50%] h-[50%] object-cover transition-opacity duration-100 origin-top-left scale-[200%]",
+            "w-[50%] h-[50%] object-cover transition-opacity duration-700 origin-top-left scale-[200%]",
             isIframeLoaded ? "opacity-100" : "opacity-0"
           )}
         />
